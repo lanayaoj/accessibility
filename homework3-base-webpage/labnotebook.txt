@@ -1,0 +1,235 @@
+WAVE Report of Accessibility
+
+10 Errors:
+- 1 missing alt text
+- 3 linked images missing alt text 
+- 5 missing form label
+- 1 language missing or invalid
+
+3 Contrast Errors in the Links section (Accessibility Research at CMU, Disability Services at CMU, Hampster Dance)
+
+5 Alerts:
+- 1 No heading structure
+- 1 No page regions
+- 1 broken same-page link
+- 1 Very small text
+- 1 HTML5 video or audio
+
+4 Features: Missing alt text
+
+2 ARIA:
+- 2 ARIA tab index
+
+
+Description:
+
+The WAVE tool identified several accessibility issues, 
+including 10 errors such as missing alt text for images, linked images, and form labels, as well as an invalid or missing language 
+attribute. Additionally, it found 3 contrast errors affecting the visibility of links. The report also highlighted 5 alerts, including
+the absence of a heading structure, page regions, and a broken same-page link, as well as very small text and the use of an HTML5 video or audio element.
+There were 4 missing alt text features and 2 ARIA tab index issues.
+
+
+--------------------LAB NOTEBOOK ---------------------
+
+Web structure issues I fixed:
+Lab notebook:
+Based on the WAVE report, I fixed the following issues:
+
+1 missing alt text for the image of the graph representing employment percentages between disabled and non-disabled Americans.
+
+    Problem: The image lacked descriptive alt text, making it inaccessible to screen readers, which meant that users with visual impairments could not understand the image’s content.
+    Severity: High. This type of issue prevents users from accessing critical information conveyed in the image.
+    Fix: I added a meaningful alt text description to the image to ensure accessibility:
+    html
+
+    <img width="50px" height="50px" src="pics/play.png" alt="Graph representing employment percentages between disabled and non-disabled Americans.">
+    
+3 linked images missing alt text
+
+    Problem: Three linked images used as navigation buttons were missing alt text, making them inaccessible for screen readers and preventing visually impaired users from navigating the site effectively.
+    Severity: High. This affects navigation, one of the most critical features for accessibility.
+    Fix: I added descriptive alt text for each of the images:
+    html
+
+    <a href="#home"><img src="pics/home.png" alt="home button"></a>
+    <a href="#links"><img src="pics/links.png" alt="additional links button"></a>
+    <a href="#signup"><img src="pics/signup.png" alt="button that leads to sign-up page"></a>
+
+5 missing form labels
+
+    Problem: Form fields lacked labels, making it difficult for users with screen readers to know what information to input. Missing labels can cause confusion and prevent users from completing forms accurately.
+    Severity: High. Missing form labels create significant barriers to completing tasks for users with disabilities.
+    Fix: I added appropriate labels to the form fields to provide clarity:
+    html
+
+    <label for="fn">First Name:</label> 
+    <input name="fn" type="text" size="10" id="fn">
+    <label for="mi">Middle Initial:</label>
+    <input name="mi" type="text" size="1" id="mi"> 
+    <label for="ln">Last Name:</label>
+    <input name="ln" type="text" size="10" id="ln"><br>
+    <label for="em">Email:</label>
+    <label for="spamyn">
+    <img src="pics/checked.png" alt="checkbox" tabindex="0">
+    </label>
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments" rows="5" cols="40"></textarea>
+
+1 language missing or invalid within the HTML structure
+
+    Problem: The HTML document did not have a language attribute, making it harder for screen readers to correctly interpret the text’s language, especially for multilingual users.
+    Severity: Medium. The lack of a language attribute impacts screen reader users and global accessibility standards.
+    Fix: I added the appropriate language attribute to the HTML tag:
+    html
+
+    <html lang="en">
+
+3 Contrast Errors in the Links section (Accessibility Research at CMU, Disability Services at CMU, Hampster Dance)
+
+    Problem: The text links had poor contrast, making them difficult to read for users with low vision or color blindness.
+    Severity: High. Contrast issues are common accessibility problems that significantly reduce readability for users with visual impairments.
+    Fix: I adjusted the contrast in the CSS stylesheet by changing the text color to black and bolding the links for better visibility:
+    css
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+    }
+
+1 Very small text
+
+    Problem: Text in the .offscreen class was too small, rendering it unreadable for all users, especially those with visual impairments.
+    Severity: Medium. Small text is a common barrier to accessibility and impacts the user experience.
+    Fix: I increased the font size from 1px to 20px in the CSS file to make the text legible:
+    css
+
+    .offscreen {
+        top: -1000px;
+        font-size: 20px;
+    }
+
+
+1 HTML5 video or audio without captions
+
+    Problem: The HTML5 video lacked captions, making it inaccessible to users with hearing impairments.
+    Severity: High. Multimedia content without captions significantly hinders accessibility for deaf or hard-of-hearing users.
+    Fix: I added a caption track to the video element to provide subtitles:
+    html
+
+    <video width="480" height="360" controls>
+    <source src="employment-movie.mp4" type="video/mp4">
+    <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+    Your browser does not support the video tag.
+    </video>
+
+High contrast banner image
+
+    Problem: The banner image had too much contrast, making the text overlay difficult to read.
+    Severity: Medium. Poor contrast in images can strain users' eyes and make reading text harder.
+    Fix: I applied a CSS filter to improve the readability of the banner text:
+
+    filter: contrast(100%) brightness(80%) saturate(80%);
+
+Missing heading structure
+
+    Problem: The page lacked a clear heading structure, making it difficult for screen readers to navigate the content effectively.
+    Severity: High. A clear heading hierarchy is essential for navigation and accessibility.
+    Fix: I added headings using <h1> and <h2> tags to define the page’s structure:
+
+    <h1>Main Title</h1>
+    <h2>Video Overview</h2>
+    <h2>Links</h2>
+    <h2>Sign Up!</h2>
+
+
+
+--------------------LAB NOTEBOOK ---------------------
+
+Web structure issues I fixed:
+
+
+Based on the WAVE report I fixed the following issues:
+
+  * 1 missing alt text for the image of the graph representing employment percentages 
+    between disabled and non-disabled Amereicans.
+
+    I fixed it by editing the code:
+    <img width="50px" height="50px" src="pics/play.png" alt = "Graph representing employment percentages between disable and non-disabled Americans.">
+
+  * 3 linked images missing alt text 
+
+    I fixed it by adding alt text to each menu image:
+    <a href="#home"><img src="pics/home.png" alt="home button"></a><a href="#links"><img src="pics/links.png" alt="additional links button"></a> <a href="#signup"><img src="pics/signup.png" alt="button that leads to sign up page"></a>
+
+  * 5 missing form label - Sign up form is missing label for the form fields
+
+    I fixed this ny editing the following code:
+
+    <label for="fn">First Name:</label> 
+    <input name="fn" type="text" size="10" id="fn"> 
+    <label for="mi">Middle Initial:</label>
+    <input name="mi" type="text" size="1" id="mi">. 
+    <label for="ln">Last Name:</label>
+    <input name="ln" type="text" size="10" id="ln"><br>
+    <label for="em">Email:</label>
+        <label for="spamyn">
+        <img src="pics/checked.png" alt="checkbox" tabindex="0">
+        </label>
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments" rows="5" cols="40"></textarea>
+
+  * 1 language missing or invalid within the HTML structure.
+
+    I fixed by adding the following line of code:
+    <html lang="en">
+
+  * 3 Contrast Errors in the Links section (Accessibility Research at CMU, Disability Services at CMU, Hampster Dance)
+    
+
+    I fixed this by editing the CSS style sheet to chnage the text color from gray to black adn also bolden the text:
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+    }
+
+  *  1 Very small text
+
+    I fixed it by editing the .offscreen class in the CSS file:
+    .offscreen {
+        top: -1000px;
+        font-size: 20px;
+    }
+    and increasing the font size from 1px to 20px
+
+  *  1 HTML5 video or audio
+
+  This message represents a section of code that identifies a videa and flags for a transcript or closed captioning.
+  In this code we see there is no CC:
+        <video width="480" height="360" id="thevideo">
+        <source src="employment-movie.mp4" type="video/mp4">
+        </video>
+  
+  I fixed it by:
+  <video width="480" height="360" controls>
+    <source src="employment-movie.mp4" type="video/mp4">
+    <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+    Your browser does not support the video tag.
+ </video> 
+
+
+ * high contrast banner image:
+ 
+    The contrast in the image was making it hard to read so I added a custom filter
+    to make it easier to see.
+
+    filter: contrast(100%) brightness(80%) saturate(80%);
+
+  * Missing headind structure
+  
+    How I fixed it:
+    Added <h1> for the main title, and <h2> for sections like "Video Overview", "Links", and "Sign Up!". This provides a clear hierarchy and structure.
+
+

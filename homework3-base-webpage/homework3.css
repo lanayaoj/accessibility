@@ -26,12 +26,13 @@ input,textarea {
 
 a {
   text-decoration: none;
-  color: gray;
+  font-weight: bold;
+  color: black;
 }
 
 .offscreen {
   top: -1000px;
-  font-size: 1px;
+  font-size: 20px;
 }
 
 .navigation a {
@@ -52,4 +53,6 @@ a {
   width: 857px;
   height: 207px;
   background-image: url(pics/accessibilityoverviewbanner.png);
+  filter: contrast(100%) brightness(80%) saturate(80%);
+
 }
